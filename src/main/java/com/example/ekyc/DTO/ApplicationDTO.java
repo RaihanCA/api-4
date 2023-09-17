@@ -9,7 +9,7 @@ import java.util.UUID;
 @Getter
 @Setter
 public class ApplicationDTO {
-    private String applicationId;
+    private UUID applicationId;
 
     private String certificateType;
 

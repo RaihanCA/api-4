@@ -20,8 +20,8 @@ public class ApplicationController {
         this.applicationService = applicationService;
     }
     @PostMapping("/application/{applicationType}")
-    public ResponseEntity<String> addIndividualOrganizationalUser(@PathVariable String applicationType, @RequestBody ApplicationDTO applicationDTO){
-        String individualOrganizationalUser = applicationService.addIndividualOrganizationalUser(applicationType,applicationDTO);
+    public ResponseEntity<UUID> addIndividualOrganizationalUser(@PathVariable String applicationType, @RequestBody ApplicationDTO applicationDTO){
+        UUID individualOrganizationalUser = applicationService.addIndividualOrganizationalUser(applicationType,applicationDTO);
         if(individualOrganizationalUser != null){
             return ResponseEntity.ok(individualOrganizationalUser);
         }

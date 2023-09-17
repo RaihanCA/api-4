@@ -23,7 +23,7 @@ public class ApplicationService {
     private final OrganizationApplicationRepository organizationApplicationRepository;
     OrganizationApplicationEntity organizationApplicationEntity = new OrganizationApplicationEntity();
 
-    public String addIndividualOrganizationalUser(String applicationType,ApplicationDTO applicationDTO){
+    public UUID addIndividualOrganizationalUser(String applicationType,ApplicationDTO applicationDTO){
         if(applicationType.equals("individual"))
         {
             individualApplicationEntity.setApplicationId(applicationDTO.getApplicationId());
@@ -53,7 +53,7 @@ public class ApplicationService {
             organizationApplicationEntity.setOrgType(applicationDTO.getOrgType());
             organizationApplicationEntity.setOrgName(applicationDTO.getOrgName());
             organizationApplicationEntity.setApplicantDesignation(applicationDTO.getApplicantDesignation());
-            organizationApplicationEntity.setApplicantDepartment(applicationDTO.getApplicationId());
+            organizationApplicationEntity.setApplicantDepartment(applicationDTO.getApplicantDepartment());
             organizationApplicationEntity.setOrgHouseNumber(applicationDTO.getOrgHouseNumber());
             organizationApplicationEntity.setOrgCity(applicationDTO.getOrgCity());
             organizationApplicationEntity.setOrgPostCode(applicationDTO.getOrgPostCode());
