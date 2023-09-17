@@ -44,10 +44,10 @@ public class UserEntity {
     @Column(name= "dateOfBirth")
     private Date dateOfBirth;
     @Column(name= "userPhotoDocumentId")
-    private String userPhotoDocumentId;
+    private UUID userPhotoDocumentId;
     @Column(name= "nidFrontDocumentId")
-    private String nidFrontDocumentId;
+    private UUID nidFrontDocumentId;
     @Column(name= "nidBackDocumentId")
-    private String nidBackDocumentId;
+    private UUID nidBackDocumentId;
 
 }

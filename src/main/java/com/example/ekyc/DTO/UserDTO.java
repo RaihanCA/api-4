@@ -3,6 +3,7 @@ package com.example.ekyc.DTO;
 import jakarta.persistence.Column;
 
 import java.util.Date;
+import java.util.UUID;
 
 
 public class UserDTO {
@@ -124,27 +125,27 @@ public class UserDTO {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getUserPhotoDocumentId() {
+    public UUID getUserPhotoDocumentId() {
         return userPhotoDocumentId;
     }
 
-    public void setUserPhotoDocumentId(String userPhotoDocumentId) {
+    public void setUserPhotoDocumentId(UUID userPhotoDocumentId) {
         this.userPhotoDocumentId = userPhotoDocumentId;
     }
 
-    public String getNidFrontDocumentId() {
+    public UUID getNidFrontDocumentId() {
         return nidFrontDocumentId;
     }
 
-    public void setNidFrontDocumentId(String nidFrontDocumentId) {
+    public void setNidFrontDocumentId(UUID nidFrontDocumentId) {
         this.nidFrontDocumentId = nidFrontDocumentId;
     }
 
-    public String getNidBackDocumentId() {
+    public UUID getNidBackDocumentId() {
         return nidBackDocumentId;
     }
 
-    public void setNidBackDocumentId(String nidBackDocumentId) {
+    public void setNidBackDocumentId(UUID nidBackDocumentId) {
         this.nidBackDocumentId = nidBackDocumentId;
     }
 
@@ -170,10 +171,10 @@ public class UserDTO {
 
     private Date dateOfBirth;
 
-    private String userPhotoDocumentId;
+    private UUID userPhotoDocumentId;
 
-    private String nidFrontDocumentId;
+    private UUID nidFrontDocumentId;
 
-    private String nidBackDocumentId;
+    private UUID nidBackDocumentId;
 }
 
