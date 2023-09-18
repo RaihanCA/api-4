@@ -40,6 +40,7 @@ public class ApplicationService {
             individualApplicationEntity.setUtilityBillDocumentId(applicationDTO.getUtilityBillDocumentId());
             individualApplicationEntity.setOtherDocumentId(applicationDTO.getOtherDocumentId());
             individualApplicationRepository.save(individualApplicationEntity);
+            //
             return individualApplicationEntity.getApplicationId();
         } else if(applicationType.equals("organizational")){
             organizationApplicationEntity.setApplicationId(applicationDTO.getApplicationId());

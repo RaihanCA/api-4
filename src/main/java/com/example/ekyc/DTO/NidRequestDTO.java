@@ -6,6 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class NidRequestDTO {
-    private String NID;
-    private String DOB;
+    private String username;
+    private String password;
+    private String nid;
+    private String dob;
 }

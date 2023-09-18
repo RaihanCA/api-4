@@ -28,7 +28,7 @@ public class ApplicationController {
         else return ResponseEntity.notFound().build();
     }
     @GetMapping("/application/{applicationType}/{applicationId}")
-    public ResponseEntity<ApplicationDTO> getApplicantById(@PathVariable String applicationType, @PathVariable("applicantId") UUID applicantId)
+    public ResponseEntity<ApplicationDTO> getApplicantById(@PathVariable String applicationType, @PathVariable("applicationId") UUID applicantId)
     {
         try{
             ApplicationDTO applicationDTO = applicationService.getApplicantById(applicationType, applicantId);
@@ -51,7 +51,7 @@ public class ApplicationController {
 
     }
     @PutMapping("/application/{applicationType}/{applicationId}")
-    public ResponseEntity<ApplicationDTO> updateApplicant(@PathVariable String applicationType, @PathVariable("applicantId") UUID applicantId,@RequestBody ApplicationDTO applicationDTO)
+    public ResponseEntity<ApplicationDTO> updateApplicant(@PathVariable String applicationType, @PathVariable("applicationId") UUID applicantId,@RequestBody ApplicationDTO applicationDTO)
     {
         boolean updated = applicationService.updateApplicant(applicationType,applicantId,applicationDTO);
         if (updated) {
@@ -61,7 +61,7 @@ public class ApplicationController {
         }
     }
     @DeleteMapping("/application/{applicationType}/{applicationId}")
-    public ResponseEntity<Void> deleteUser(@PathVariable String applicationType, @PathVariable("applicantId") UUID applicantId) {
+    public ResponseEntity<Void> deleteUser(@PathVariable String applicationType, @PathVariable("applicationId") UUID applicantId) {
         boolean deleted = applicationService.deleteApplicant(applicationType,applicantId);
         if (deleted) {
             return ResponseEntity.noContent().build();
