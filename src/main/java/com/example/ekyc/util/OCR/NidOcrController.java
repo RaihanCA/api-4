@@ -10,10 +10,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.text.ParseException;
 
 @RestController
 @RequestMapping("/api/nid/ocr")
@@ -29,11 +35,13 @@ public class NidOcrController {
             tesseract.setDatapath(tesseractPath);
 
             // Save the MultipartFile to a temporary file
-            File tempFile = File.createTempFile("temp_image", null);
-            imageFile.transferTo(tempFile);
+            //File tempFile = File.createTempFile("temp_image", null);
+            BufferedImage fopimage = ImageIO.read(imageFile.getInputStream());
+            //imageFile.transferTo((Path) fopimage);
+
 
             // Perform OCR on the temporary file
-            String extractedText = tesseract.doOCR(tempFile);
+            String extractedText = tesseract.doOCR(fopimage);
 
             // Define regular expressions to match Date of Birth and NID/ID number patterns
             Pattern dobPattern = Pattern.compile("Date of Birth: ([0-9]{2} [A-Za-z]{3} [0-9]{4})");
@@ -47,10 +55,31 @@ public class NidOcrController {
             Matcher nidMatcher = nidPattern.matcher(extractedText);
             String nid = nidMatcher.find() ? (nidMatcher.group(1) != null ? nidMatcher.group(1) : nidMatcher.group(2)) : null;
 
-            NidOcrResponse response = new NidOcrResponse(nid, dob);
+            NidOcrResponse response = new NidOcrResponse();
+            response.setNid(nid);
+
+
+            // Create a SimpleDateFormat object for parsing the input date string
+            SimpleDateFormat inputFormat = new SimpleDateFormat("dd MMM yyyy");
+
+            try {
+                // Parse the input date string to a Date object
+                Date date = inputFormat.parse(dob);
+
+                // Create a SimpleDateFormat object for formatting the date to "yyyy-MM-dd" format
+                SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+                // Format the date and reassign it to nid
+                dob = outputFormat.format(date);
+            }catch (ParseException e) {
+                return null;
+            }
+
+
+            response.setDob(dob);
 
             // Delete the temporary file
-            tempFile.delete();
+            //tempFile.delete();
 
             return ResponseEntity.ok(response);
         } catch (TesseractException | IOException e) {
