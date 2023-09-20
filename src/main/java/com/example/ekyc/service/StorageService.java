@@ -6,6 +6,7 @@
 ////import com.example.ekyc.respository.StorageRepository;
 ////import com.example.ekyc.util.ImageUtils;
 ////import com.example.ekyc.repository.FileDataRepository;
+//import com.example.ekyc.repository.FileDataRepository;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Service;
 //import org.springframework.web.multipart.MultipartFile;

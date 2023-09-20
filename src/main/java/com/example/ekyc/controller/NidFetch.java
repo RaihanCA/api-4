@@ -29,8 +29,6 @@ public class NidFetch {
         nidRequestDTO.setPassword("Farhana#2018@Nid");
         nidRequestDTO.setNid(nidInputDTO.getNid());
         nidRequestDTO.setDob(nidInputDTO.getDob());
-//        nidRequestDTO.setNid("3304067592");
-//        nidRequestDTO.setDob("1999-04-15");
         String apiUrl = "http://202.84.43.87:80/api-v1/getNIDInfo/";
 //            ApiResponseDTO apiResponseDTO = NidService.postToExternalApi(apiUrl, nidRequestDTO);
         return ResponseEntity.ok(nidService.postToExternalApi(apiUrl, nidRequestDTO));
