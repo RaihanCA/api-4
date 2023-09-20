@@ -3,6 +3,7 @@ package com.example.ekyc.service;
 import com.example.ekyc.DTO.ApiResponseDTO;
 import com.example.ekyc.DTO.NidRequestDTO;
 
+import com.example.ekyc.DTO.NidResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class NidService {
         this.restTemplate = restTemplate;
     }
 
-    public String postToExternalApi(String apiUrl, NidRequestDTO requestBody) {
+    public NidResponseDTO postToExternalApi(String apiUrl, NidRequestDTO requestBody) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
@@ -26,11 +27,11 @@ public class NidService {
 
         HttpEntity<NidRequestDTO> request = new HttpEntity<>(requestBody, headers);
 
-        ResponseEntity<String> responseEntity = restTemplate.exchange(
+        ResponseEntity<NidResponseDTO> responseEntity = restTemplate.exchange(
                 apiUrl,
                 HttpMethod.POST,
                 request,
-                String.class);
+                NidResponseDTO.class);
 
         return responseEntity.getBody();
     }
