@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController()
+@CrossOrigin(origins = "*")
 @RequestMapping(value = "/api", produces = "application/json;charset=UTF-8")
 public class ApplicationController {
     private final ApplicationService applicationService;

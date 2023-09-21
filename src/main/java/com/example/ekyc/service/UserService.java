@@ -51,8 +51,7 @@ public class UserService {
             UserEntity userEntity = optionalUserEntity.get();
             // Convert userEntity to UserDTO and return it
             UserDTO userDTO = new UserDTO();
-            // Set userDTO properties using userEntity
-            // ...
+
             userDTO.setUserName(userEntity.getUserName());
             userDTO.setUserRole(userEntity.getUserRole());
             userDTO.setEmail(userEntity.getEmail());

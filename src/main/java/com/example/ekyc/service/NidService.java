@@ -1,6 +1,5 @@
 package com.example.ekyc.service;
 
-import com.example.ekyc.DTO.ApiResponseDTO;
 import com.example.ekyc.DTO.NidRequestDTO;
 
 import com.example.ekyc.DTO.NidResponseDTO;

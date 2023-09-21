@@ -1,4 +1,4 @@
-package com.example.ekyc.util.OCR;
+package com.example.ekyc.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

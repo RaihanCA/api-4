@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class NidResponseDTO {
     //just uncomment the fields and response will show that fields also
     private int code;
-    private String message;
+//    private String message;
     private String nid;
     private String name;
 //    private String nameBan;
