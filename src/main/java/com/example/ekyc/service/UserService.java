@@ -13,7 +13,7 @@ import java.util.UUID;
 @Service
 public class UserService {
 
-    UserEntity userEntity = new UserEntity();
+
 
     private final UserRepository userRepository;
 
@@ -23,6 +23,7 @@ public class UserService {
     }
 
     public UUID addUser(UserDTO userdto){
+        UserEntity userEntity = new UserEntity();
 //      userEntity.setUserId(ConstantUtil.getUUID());
         userEntity.setEmail(userdto.getEmail());
         userEntity.setUserName(userdto.getUserName());
